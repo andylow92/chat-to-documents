@@ -51,7 +51,7 @@ iface = gr.Interface(fn=chatbot,
                      outputs="text",
                      title="HINDISGHT expense management chatbot")
 
-index = construct_index("/Users/andreslopez/Desktop/chat-bot/docs")
+index = construct_index("/{path-to}/docs")
 response = chatbot("Hello I am here to help you")
 print(response)
 iface.launch(share=True)
