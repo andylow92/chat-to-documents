@@ -6,16 +6,16 @@ import sys
 import os
 from llama_index.node_parser import SimpleNodeParser
 from llama_index.storage.docstore.simple_docstore import SimpleDocumentStore
+import openai
 
-os.environ["OPENAI_API_KEY"] = "add your key"
-openai_key = "add your key"
+openai.api_key  = "add your key"
 dir_path = os.path.abspath(os.path.dirname(__file__))
 docs_path = os.path.join(dir_path, "docs")
 
 
 
 def construct_index(directory_path):
-    chatModel = ChatOpenAI(streaming=True, openai_api_key=openai_key, temperature=0.3, model_name="gpt-3.5-turbo")
+    chatModel = ChatOpenAI(streaming=True, openai_api_key=openai.api_key , temperature=0.3, model_name="gpt-3.5-turbo")
 
     llm_predictor = LLMPredictor(llm=chatModel)
 
@@ -49,7 +49,8 @@ def chatbot(input_text):
 iface = gr.Interface(fn=chatbot,
                      inputs=gr.components.Textbox(lines=7, label="Enter your text"),
                      outputs="text",
-                     title="HINDISGHT expense management chatbot")
+                    title="Chat to documents chatbot")
+
 
 index = construct_index("/{path-to}/docs")
 response = chatbot("Hello I am here to help you")
