@@ -1,5 +1,7 @@
 Gradio Chatbot Link Generator
 
+You can also follow the tutorial on https://medium.com/@aalc928/unleash-the-power-of-words-building-a-document-based-chatbot-with-gradio-and-openai-6b998d70fcbd
+
 This code generates a Gradio link that allows users to chat with a document that the chatbot is reading. The chatbot is powered by the GPT-3.5 Turbo model from OpenAI. Users can input text, and the chatbot will provide responses based on the content of the documents it has access to.
 Prerequisites
 
